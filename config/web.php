@@ -7,11 +7,16 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'language' => 'ua-UA',
+    'name'=>'CRM Project',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'EUICXNuDdtQoW-SOpg8w7h4yIto7QH3o',
@@ -43,14 +48,15 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
+        
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '<controller>/<action>'=> '<controller>/<action>'
             ],
         ],
-        */
+        
     ],
     'params' => $params,
 ];
@@ -61,12 +67,13 @@ if (YII_ENV_DEV) {
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
+        'allowedIPs' => ['127.0.0.1', '::1', '10.13.0.9', '192.168.33.143', '192.168.33.180', '192.168.33.0/24', '10.13.0.0/24', '95.158.11.15'],
     ];
 
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
+        'allowedIPs' => ['127.0.0.1', '::1', '10.13.0.9', '192.168.33.143', '192.168.33.180', '192.168.33.0/24', '10.13.0.0/24', '95.158.11.15'],
         // uncomment the following to add your IP if you are not connecting from localhost.
         //'allowedIPs' => ['127.0.0.1', '::1'],
     ];
