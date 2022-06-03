@@ -21,7 +21,7 @@ $this->title = 'CRM Project';
 
                 <p>Ввіти до облікового запису.</p>
 
-                <p><a class="btn btn-outline-secondary" href="login.php">Вхід &raquo;</a></p>
+                <p><a class="btn btn-outline-secondary" href="login">Вхід &raquo;</a></p>
             </div>
             <div class="col-lg-4">
                 <h2>Реєстрація</h2>
