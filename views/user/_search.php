@@ -25,17 +25,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name') ?>
 
-    <?php // echo $form->field($model, 'age') ?>
+    <?php  echo $form->field($model, 'age') ?>
 
-    <?php // echo $form->field($model, 'position') ?>
+    <?php  echo $form->field($model, 'position') ?>
 
-    <?php // echo $form->field($model, 'type_zp') ?>
+    <?php  echo $form->field($model, 'type_zp') ?>
 
-    <?php // echo $form->field($model, 'zp_h') ?>
+    <?php  echo $form->field($model, 'zp_h') ?>
 
-    <?php // echo $form->field($model, 'id_group') ?>
+    <?php  echo $form->field($model, 'id_group') ?>
 
-    <?php // echo $form->field($model, 'status') ?>
+    <?php  echo $form->field($model, 'status') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
