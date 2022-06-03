@@ -7,9 +7,9 @@ $this->title = 'CRM Project';
 <div class="site-index">
 
     <div class="jumbotron text-center bg-transparent">
-        <h1 class="display-4">Hello User!</h1>
+        <h1 class="display-4">Слава Україні!</h1>
 
-        <p class="lead">You see home page in CRM Project.</p>
+        <p class="lead">Русский военный корабль — иди нахуй!</p>
 
     </div>
 
