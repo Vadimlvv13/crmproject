@@ -17,7 +17,7 @@ $this->title = 'CRM Project';
 
         <div class="row">
             <div class="col-lg-4">
-                <h2>Логін</h2>
+                <h2>Вхід</h2>
 
                 <p>Ввіти до облікового запису.</p>
 
