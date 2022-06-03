@@ -14,6 +14,8 @@ use Yii;
  * @property string $name ПІБ
  * @property string|null $age Дата народження
  * @property string|null $position Посада
+ * @property string|null $email Електронна адреса
+ * @property string|null $phone Номер телефону
  * @property int|null $type_zp Тип ЗП (0 - ставка, 1 - погодинно, 2 - ставка+погодинно)
  * @property float|null $zp_h ЗП на годину
  * @property int $id_group id групи
@@ -39,8 +41,9 @@ class User extends \yii\db\ActiveRecord
             [['age'], 'safe'],
             [['type_zp', 'id_group', 'status'], 'integer'],
             [['zp_h'], 'number'],
+            [['phone'], 'string', 'max' => 13],
             [['role'], 'string', 'max' => 16],
-            [['login', 'pass', 'position'], 'string', 'max' => 32],
+            [['login', 'pass', 'position', 'email'], 'string', 'max' => 32],
             [['name'], 'string', 'max' => 64],
             [['login'], 'unique'],
         ];
@@ -59,6 +62,8 @@ class User extends \yii\db\ActiveRecord
             'name' => 'Name',
             'age' => 'Age',
             'position' => 'Position',
+            'email' => 'Email',
+            'phone' => 'Phone',
             'type_zp' => 'Type Zp',
             'zp_h' => 'Zp H',
             'id_group' => 'Id Group',

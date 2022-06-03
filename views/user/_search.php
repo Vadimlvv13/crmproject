@@ -29,6 +29,10 @@ use yii\widgets\ActiveForm;
 
     <?php  echo $form->field($model, 'position') ?>
 
+    <?php  echo $form->field($model, 'email') ?>
+
+    <?php  echo $form->field($model, 'phone') ?>
+
     <?php  echo $form->field($model, 'type_zp') ?>
 
     <?php  echo $form->field($model, 'zp_h') ?>
