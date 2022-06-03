@@ -2,103 +2,67 @@
 
 namespace app\models;
 
-class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
+use Yii;
+
+/**
+ * This is the model class for table "user".
+ *
+ * @property int $id id
+ * @property string $role Роль
+ * @property string $login Логін
+ * @property string $pass Пароль
+ * @property string $name ПІБ
+ * @property string|null $age Дата народження
+ * @property string|null $position Посада
+ * @property int|null $type_zp Тип ЗП (0 - ставка, 1 - погодинно, 2 - ставка+погодинно)
+ * @property float|null $zp_h ЗП на годину
+ * @property int $id_group id групи
+ * @property int $status Статус
+ */
+class User extends \yii\db\ActiveRecord
 {
-    public $id;
-    public $username;
-    public $password;
-    public $authKey;
-    public $accessToken;
-
-    private static $users = [
-        '100' => [
-            'id' => '100',
-            'username' => 'admin',
-            'password' => 'admin',
-            'authKey' => 'test100key',
-            'accessToken' => '100-token',
-        ],
-        '101' => [
-            'id' => '101',
-            'username' => 'demo',
-            'password' => 'demo',
-            'authKey' => 'test101key',
-            'accessToken' => '101-token',
-        ],
-    ];
-
-
     /**
      * {@inheritdoc}
      */
-    public static function findIdentity($id)
+    public static function tableName()
     {
-        return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
+        return 'user';
     }
 
     /**
      * {@inheritdoc}
      */
-    public static function findIdentityByAccessToken($token, $type = null)
+    public function rules()
     {
-        foreach (self::$users as $user) {
-            if ($user['accessToken'] === $token) {
-                return new static($user);
-            }
-        }
-
-        return null;
-    }
-
-    /**
-     * Finds user by username
-     *
-     * @param string $username
-     * @return static|null
-     */
-    public static function findByUsername($username)
-    {
-        foreach (self::$users as $user) {
-            if (strcasecmp($user['username'], $username) === 0) {
-                return new static($user);
-            }
-        }
-
-        return null;
+        return [
+            [['role', 'login', 'pass', 'name', 'id_group', 'status'], 'required'],
+            [['age'], 'safe'],
+            [['type_zp', 'id_group', 'status'], 'integer'],
+            [['zp_h'], 'number'],
+            [['role'], 'string', 'max' => 16],
+            [['login', 'pass', 'position'], 'string', 'max' => 32],
+            [['name'], 'string', 'max' => 64],
+            [['login'], 'unique'],
+        ];
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getId()
+    public function attributeLabels()
     {
-        return $this->id;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getAuthKey()
-    {
-        return $this->authKey;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function validateAuthKey($authKey)
-    {
-        return $this->authKey === $authKey;
-    }
-
-    /**
-     * Validates password
-     *
-     * @param string $password password to validate
-     * @return bool if password provided is valid for current user
-     */
-    public function validatePassword($password)
-    {
-        return $this->password === $password;
+        return [
+            'id' => 'ID',
+            'role' => 'Role',
+            'login' => 'Login',
+            'pass' => 'Pass',
+            'name' => 'Name',
+            'age' => 'Age',
+            'position' => 'Position',
+            'type_zp' => 'Type Zp',
+            'zp_h' => 'Zp H',
+            'id_group' => 'Id Group',
+            'status' => 'Status',
+        ];
     }
 }
