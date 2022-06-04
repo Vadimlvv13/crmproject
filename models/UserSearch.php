@@ -18,7 +18,7 @@ class UserSearch extends User
     {
         return [
             [['id', 'type_zp', 'id_group', 'status'], 'integer'],
-            [['role', 'login', 'pass', 'name', 'age', 'position', 'email', 'phone'], 'safe'],
+            [['role', 'login', 'pass', 'f_name', 'l_name', 'age', 'position', 'email', 'phone'], 'safe'],
             [['zp_h'], 'number'],
         ];
     }
@@ -70,7 +70,8 @@ class UserSearch extends User
         $query->andFilterWhere(['like', 'role', $this->role])
             ->andFilterWhere(['like', 'login', $this->login])
             ->andFilterWhere(['like', 'pass', $this->pass])
-            ->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'f_name', $this->f_name])
+            ->andFilterWhere(['like', 'l_name', $this->l_name])
             ->andFilterWhere(['like', 'position', $this->position])
             ->andFilterWhere(['like', 'email', $this->email])
             ->andFilterWhere(['like', 'phone', $this->phone]);

@@ -19,7 +19,8 @@ use yii\filters\AccessControl;
  * @property string $auth_key Ключ авторизації
  * @property integer $creat_at Час створення
  * @property integer $updat_at Час останнього оновлення
- * @property string $name ПІБ
+ * @property string $f_name Ім\'я
+ * @property string $l_name Фамілія
  * @property string|null $age Дата народження
  * @property string|null $position Посада
  * @property string|null $email Електронна адреса
@@ -62,14 +63,14 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
-            [['role', 'login', 'pass', 'name', 'id_group', 'status'], required],
+            [['role', 'login', 'pass', 'f_name', 'l_name', 'id_group', 'status'], required],
             [['age'], safe],
             [['type_zp', 'id_group', 'status'], integer],
             [['zp_h'], number],
             [['phone'], 'string', max => 13],
             [['role'], 'string', max => 16],
             [['login', 'pass', 'position', 'email'], string, max => 32],
-            [['name'], string, max => 64],
+            [['f_name', 'l_name'], string, max => 64],
             [['login'], unique],
             [['email'], email],
         ];
@@ -165,7 +166,8 @@ class User extends ActiveRecord implements IdentityInterface
             'role' => 'Доступ',
             'login' => 'Логін',
             //'pass' => 'Pass',
-            'name' => 'Повне ім\'я',
+            'f_name' => 'Ім\'я',
+            'l_name' => 'Фамілія',
             'age' => 'Дата народження',
             'position' => 'Посада',
             'email' => 'E-mail',
