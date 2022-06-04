@@ -116,14 +116,6 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionMsg()
-    {
-	$d = "Влад ЛОХ";
-        return $this->render('msg', [
-	    'd' => $d,
-	]);
-    }
-
     /**
      * Displays about page.
      *
