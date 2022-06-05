@@ -63,16 +63,16 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
-            [['role', 'login', 'pass', 'f_name', 'l_name', 'id_group', 'status'], required],
-            [['age'], safe],
-            [['type_zp', 'id_group', 'status'], integer],
-            [['zp_h'], number],
-            [['phone'], 'string', max => 13],
-            [['role'], 'string', max => 16],
-            [['login', 'pass', 'position', 'email'], string, max => 32],
-            [['f_name', 'l_name'], string, max => 64],
-            [['login'], unique],
-            [['email'], email],
+            [['role', 'login', 'pass', 'f_name', 'l_name', 'id_group', 'status'], 'required'],
+            [['age'], 'safe'],
+            [['type_zp', 'id_group', 'status'], 'integer'],
+            [['zp_h'], 'number'],
+            [['phone'], 'string', 'max' => 13],
+            [['role'], 'string', 'max' => 16],
+            [['login', 'pass', 'position', 'email'], 'string', 'max' => 32],
+            [['f_name', 'l_name'], 'string', 'max' => 64],
+            [['login'], 'unique'],
+            [['email'], 'email'],
         ];
     }
 
