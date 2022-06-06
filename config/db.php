@@ -2,8 +2,8 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=mydb',
-    'username' => 'root',
+    'dsn' => 'mysql:host=localhost;dbname=crmproject',
+    'username' => 'vladmin',
     'password' => '',
     'charset' => 'utf8mb4',
 
