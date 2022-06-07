@@ -136,7 +136,7 @@ class UserController extends Controller
     {
         
         return $this->render('/user/new/test', []);
-        }
+        
     }
 
 }
