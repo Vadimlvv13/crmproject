@@ -68,10 +68,15 @@ class UserController extends Controller
     public function actionCreate()
     {
         $model = new User();
-
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+            if ($model->load($this->request->post()) {
+                $model->create_at = time();
+                $model->update_at = time();
+
+                if ($model->save(false)) {
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }
+                
             }
         } else {
             $model->loadDefaultValues();
