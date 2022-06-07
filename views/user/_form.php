@@ -36,6 +36,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id_group')->textInput() ?>
 
+    <?= $form->field($model, 'create_at')->time() ?>
+
+    <?= $form->field($model, 'update_at')->time() ?>
+
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
