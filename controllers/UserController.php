@@ -131,4 +131,12 @@ class UserController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+    public function actionTest()
+    {
+        
+        return $this->render('new/test');
+        }
+    }
+
 }
