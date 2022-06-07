@@ -17,8 +17,8 @@ use yii\filters\AccessControl;
  * @property string $login Логін
  * @property string $pass Пароль
  * @property string $auth_key Ключ авторизації
- * @property integer $create_at Час створення
- * @property integer $update_at Час останнього оновлення
+ * @property int $create_at Час створення
+ * @property int $update_at Час останнього оновлення
  * @property string $f_name Ім\'я
  * @property string $l_name Фамілія
  * @property string|null $age Дата народження
