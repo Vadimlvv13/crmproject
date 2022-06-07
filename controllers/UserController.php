@@ -69,7 +69,7 @@ class UserController extends Controller
     {
         $model = new User();
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) {
+            if ($model->load($this->request->post())) {
                 $model->create_at = time();
                 $model->update_at = time();
 
