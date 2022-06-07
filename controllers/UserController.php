@@ -73,7 +73,7 @@ class UserController extends Controller
                 $model->create_at = time();
                 $model->update_at = time();
 
-                if ($model->save(false)) {
+                if ($model->save()) {
                     return $this->redirect(['view', 'id' => $model->id]);
                 }
                 
