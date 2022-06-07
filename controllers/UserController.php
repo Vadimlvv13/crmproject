@@ -135,7 +135,7 @@ class UserController extends Controller
     public function actionTest()
     {
         
-        return $this->render('new/test');
+        return $this->render('new/test', []);
         }
     }
 
