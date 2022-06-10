@@ -125,4 +125,13 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
+    public function actionTest()
+    {
+        $time = time();
+
+        return $this->render('test', [
+            'time' => $time,
+        ]);
+    }
 }
